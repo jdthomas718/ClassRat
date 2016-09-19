@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jdthomas718/ClassRat/issues"
   },
-  "homepage": "https://github.com/jdthomas718/ClassRat#readme"
+  "homepage": "https://github.com/jdthomas718/ClassRat#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
