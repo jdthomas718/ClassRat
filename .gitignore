@@ -1,0 +1,2 @@
+# ignore any modifications to .dbconfig to prevent accidental committing of database username/password #
+*.dbconfig
