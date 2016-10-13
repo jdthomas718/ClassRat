@@ -11,6 +11,18 @@ http.createServer(function (request, response) {
 // CORE HTTP/RESTful SERVER EXAMPLE (do use!)
 var express = require("express"); // require express module
 var app = express(); // start express
+var mongoose = require('mongoose'); // require mongoose (for mongodb integration
+var fs = require('fs'); // necessary to read from files
+
+fs.readFile(".dbconfig", 'utf8', function(err,data){
+   if (err) {
+        console.log(err);
+   } else {
+        var dbAccess = JSON.parse(data); // if read successful, parse JSON into object
+        var userAuthString = dbAccess.user + ':' + dbAccess.password; // get username and password
+        mongoose.connect('mongodb://' + userAuthString + '@ds147975.mlab.com:47975/classratdbtest'); // connect to database
+   }
+});
 
 app.use(express.static("public")); // serve files within the "public" folder
 

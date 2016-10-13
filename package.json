@@ -20,6 +20,7 @@
   "homepage": "https://github.com/jdthomas718/ClassRat#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "mongoose": "^4.6.3",
     "pug": "^2.0.0-beta6"
   }
 }
