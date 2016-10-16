@@ -12,8 +12,6 @@ module.exports = function(app) {
      }
   });
 
-  app.use(express.static("public")); // serve files within the "public" folder
-
   app.get("/api/hello", function(request, response) { // provide RESTful GET API at /hello
       response.send("Hello, World!"); // respond with string
   });
