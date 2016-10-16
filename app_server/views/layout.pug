@@ -2,11 +2,17 @@ doctype html
 html
   head
     meta(name='viewport', content='width=device, initial-scale=1.0')
-    title= title
+    title= ClassRat
     link(rel='stylesheet', href='/bootstrap-3.3.7/css/readable.bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') ClassRat
+    .container
+      block content
+      
     script(src='/angular-1.5.8/angular.min.js')
     script(src='/angular-1.5.8/angular-animate.min.js')
     script(src='/angular-1.5.8/angular-aria.min.js')
