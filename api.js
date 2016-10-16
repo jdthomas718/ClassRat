@@ -7,8 +7,8 @@ module.exports = function(app) {
           console.log(err);
      } else {
           var dbAccess = JSON.parse(data); // if read successful, parse JSON into object
-          var userAuthString = dbAccess.user + ':' + dbAccess.password; // get username and password
-          mongoose.connect('mongodb://' + userAuthString + '@ds147975.mlab.com:47975/classratdbtest'); // connect to database
+          var userAuthString = dbAccess.user + ':' + dbAccess.password + '@' + dbAccess.url; // get username and password
+          mongoose.connect('mongodb://' + userAuthString); // connect to database
      }
   });
 
