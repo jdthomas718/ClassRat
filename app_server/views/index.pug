@@ -1,13 +1,15 @@
 extends layout
 
 block content
+  //Welcome row
   .row
     .col-md-12
       h1 Welcome
       p 
         | Welcome to ClassRat. A pretty cool tool to search for and rate <a href='http://www.dsu.edu'>Dakota State University </a> classes that was
         | made by a couple of students
-        
+  
+  //Search Bar Row      
   //Based on the design from http://bootsnipp.com/snippets/featured/advanced-dropdown-search
   .row
     .col-md-8
@@ -16,7 +18,8 @@ block content
         input.form-control(type='text', placeholder='Search for classes')/
         .input-group-btn
           button.btn.btn-primary: span.glyphicon.glyphicon-search(aria-hidden="true")
-      
+          
+  //Getting started rows  
   .row
     .col-md-12
       h2 Getting Started
