@@ -1,13 +1,29 @@
 extends layout
 
 block content
-  h1 Welcome
-  p 
-    | Welcome to ClassRat. A pretty cool tool to search for and rate <a href='http://www.dsu.edu'>Dakota State University </a> classes that was
-    | made by a couple of students
-  h2 Getting Started
-  p
-    | Just search for the name of the class that your are interested in. Valid formats include both the name and course number
-  p 
-    | For example, entering <kbd> Discrete Math</kbd> or <kbd> Math 316</kbd> are both valid inputs
+  .row
+    .col-md-12
+      h1 Welcome
+      p 
+        | Welcome to ClassRat. A pretty cool tool to search for and rate <a href='http://www.dsu.edu'>Dakota State University </a> classes that was
+        | made by a couple of students
+        
+  //Based on the design from http://bootsnipp.com/snippets/featured/advanced-dropdown-search
+  .row
+    .col-md-8
+      h2 Search
+      .input-group
+        input.form-control(type='text', placeholder='Search for classes')/
+        .input-group-btn
+          button.btn.btn-primary: span.glyphicon.glyphicon-search(aria-hidden="true")
+      
+  .row
+    .col-md-12
+      h2 Getting Started
+      p
+        | Just search for the name of the class that you are interested in. Valid formats include both the name and course number
+  .row
+    .col-md-12
+      p 
+        | For example, entering <kbd> Discrete Math</kbd> or <kbd> Math 316</kbd> are both valid inputs
   
