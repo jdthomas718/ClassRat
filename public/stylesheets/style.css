@@ -1,8 +1,15 @@
+/* Layout.pug styles */
+
 .iconHeader {
     max-height: 100%;
     max-width: 100%;
 }
 
+.footer {
+    text-align: center;
+}
+
+/* Index.pug styles */
 .searchBar {
     margin-top: 3%;
 }

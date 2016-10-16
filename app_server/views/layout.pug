@@ -6,14 +6,23 @@ html
     link(rel='stylesheet', href='/bootstrap-3.3.7/css/readable.bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    .navbar.navbar-default
+    .navbar.navbar-default.navbar-static-top
       .container
         .navbar-header
           a.navbar-brand(href='/') 
-            span: img.iconHeader(src='/images/ClassRat-Clear.png')/ &nbsp ClassRat
+            span: img.iconHeader(src='/images/ClassRat-Clear.png')/ &nbsp; ClassRat
     .container
       block content
       
+      .footer.navbar.navbar-fixed-bottom
+        .row
+          .col-xs-12
+            small Developers: <a href='https://github.com/jasoderstrom'> Justin Soderstrom </a>, &nbsp;
+              | <a href='https://github.com/jdthomas718'> Jacob Thomas </a>, &nbsp;
+              | <a href='https://github.com/nbrosz'> Nic Brosz </a>, &nbsp;
+              | Gideon Holmes
+            p: small Special Thanks (Icon): Jennelle Pueppke
+            
     script(src='/angular-1.5.8/angular.min.js')
     script(src='/angular-1.5.8/angular-animate.min.js')
     script(src='/angular-1.5.8/angular-aria.min.js')
