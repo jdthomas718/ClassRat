@@ -9,7 +9,7 @@ module.exports = function(app) {
           console.log(err);
      } else {
           var dbAccess = JSON.parse(data); // if read successful, parse JSON into object
-          db(mongoose, dbAccess.url, dbAccess.user, dbAccess.password); // connect to database
+          db(dbAccess.url, dbAccess.user, dbAccess.password); // connect to database
      }
   });
   

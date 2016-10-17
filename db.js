@@ -1,4 +1,5 @@
-module.exports = function(mongoose, url, user, password) {
+module.exports = function(url, user, password) {
+    var mongoose = require("mongoose");
     var connectionString = 'mongodb://' + ((user && password) ? user + ':' + password + '@' + url : url);
     
     // begin connection
