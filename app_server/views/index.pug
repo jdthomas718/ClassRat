@@ -29,4 +29,8 @@ block content
         .input-group-btn
           button.btn.btn-primary: span.glyphicon.glyphicon-search(aria-hidden="true")
           
- 
+  //Data Rows
+  .row.list-group(ng-controller="classListCtrl")
+    .col-md-12
+      button.list-group-item(ng-repeat="class in data.classes") {{ class.name }}
+    
