@@ -44,4 +44,6 @@ module.exports = function(url, user, password) {
           process.exit(0);
       });
     });
+    
+    require('./app_server/models/classes.js');
 }
