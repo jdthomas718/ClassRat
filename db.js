@@ -46,4 +46,5 @@ module.exports = function(url, user, password) {
     });
     
     require('./app_server/models/classes.js');
+    require('./app_server/models/professors.js');
 }
