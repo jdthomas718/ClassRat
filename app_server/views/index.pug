@@ -25,12 +25,12 @@ block content
   .row
     .col-md-12.searchBar
       .input-group
-        input.form-control(type='text', placeholder='Search for classes')/
+        input.form-control(type='text', placeholder='Search for classes', ng-model="search")/
         .input-group-btn
           button.btn.btn-primary: span.glyphicon.glyphicon-search(aria-hidden="true")
           
   //Data Rows
   .row.list-group(ng-controller="classListCtrl")
     .col-md-12
-      button.list-group-item(ng-repeat="class in data.classes") {{ class.name }}
+      button.list-group-item(ng-show="search" ng-repeat="class in data.classes | filter: search" ng-cloak) {{ class.name }}
     
