@@ -9,7 +9,12 @@ var classListCtrl = function($scope) {
             id: 0xf00b413,
             code: "CSC 250",
             name: "Computer Science 2"
-        }]
+        }, {
+           id: 0xf00b414,
+           code: "MATH 201",
+           name: "Intro to Discrete Math"
+        }
+         ]
     };
 }
 
