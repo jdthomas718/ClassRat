@@ -1,8 +1,10 @@
 module.exports = function(app) {
   var mongoose = require('mongoose'); // require mongoose (for mongodb integration
   var fs = require('fs'); // necessary to read from files
-  var db = require('./db.js'); // handles database connection open/close
- 
+  var db = require('./app_api/models/db'); // handles database connection open/close
+  
+  var routesApi = require('./app_api/routes/index');
+  app.use('/api', routesApi); // provide routes in API route index
 
   fs.readFile('.dbconfig', 'utf8', function(err,data){
      if (err) {

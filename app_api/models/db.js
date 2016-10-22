@@ -1,5 +1,6 @@
+var mongoose = require("mongoose");
+
 module.exports = function(url, user, password) {
-    var mongoose = require("mongoose");
     var connectionString = 'mongodb://' + ((user && password) ? user + ':' + password + '@' + url : url);
     
     // begin connection
@@ -44,7 +45,7 @@ module.exports = function(url, user, password) {
           process.exit(0);
       });
     });
-    
-    require('./app_server/models/classes.js');
-    require('./app_server/models/professors.js');
 }
+
+require('./classes');
+require('./professors');
