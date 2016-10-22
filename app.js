@@ -9,8 +9,6 @@ var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 
 var app = express();
-var api = require('./api.js'); // call RESTful API
-api(app); // pass express app to API
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -23,6 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var api = require('./api.js'); // call RESTful API
+api(app); // pass express app to API
 
 app.use('/', routes);
 app.use('/users', users);

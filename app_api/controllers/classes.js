@@ -56,7 +56,6 @@ module.exports.professorsForClass = function(req, res) {
                         total+= dbclass.professors[i]._doc.reviews[j].rating;
                     }
                     dbclass.professors[i]._doc.average = total / dbclass.professors[i]._doc.reviews.length;
-                    dbclass.professors[i]._doc.reviews = undefined; // this query shouldn't be passing the reviews
                 }
                 
                 success(res, dbclass.professors);
