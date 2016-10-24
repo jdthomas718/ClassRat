@@ -31,3 +31,16 @@ body {
 .searchBar {
     margin-top: 3%;
 }
+
+/*Review.html styles */
+.star {
+    color: orange;
+}
+
+.glyphicon.glyphicon-star {
+    font-size: 30px;
+}
+
+.glyphicon.glyphicon-star-empty {
+    font-size: 30px;
+}
