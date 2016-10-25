@@ -1,5 +1,8 @@
 <!-- Lists out the professors for a given class -->
 <div class='row list-group'>
+    <!-- Class Name -->
+    <!-- Needs a model to be define -->
+    <h2> {{ name }}</h2>
     <div class='col-md-12'>
         <button class='list-group-item' ng-repeat="professors in data.professors" ng-cloak>
             {{ professors.name }}
