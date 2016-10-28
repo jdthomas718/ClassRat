@@ -1,5 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  //Welcome row
+  .row
+    .col-md-12
+      h1 Welcome
+      p 
+        | Welcome to ClassRat. A pretty cool tool to search for and rate <a href='http://www.dsu.edu'>Dakota State University </a> classes that was
+        | made by a couple of students
+  
+  //Getting started rows  
+  .row
+    .col-md-12
+      h2 Getting Started
+      p
+        | Just search for the name of the class that you are interested in. Valid formats include both the name and course number
+  .row
+    .col-md-12
+      p 
+        | For example, entering <kbd> Discrete Math</kbd> or <kbd> Math 316</kbd> are both valid inputs
+  
+  //Search Bar Row      
+  //Based on the design from http://bootsnipp.com/snippets/featured/advanced-dropdown-search
+  .row
+    .col-md-12.searchBar
+      .input-group
+        input.form-control(type='text', placeholder='Search for classes', ng-model="search")/
+        .input-group-btn
+          button.btn.btn-primary: span.glyphicon.glyphicon-search(aria-hidden="true")
+          
+  //Data Rows
+  .row.list-group(ng-controller="classListCtrl")
+    .col-md-12
+      button.list-group-item(ng-show="search" ng-repeat="class in data.classes | filter: search" ng-cloak) {{ class.name }}
+    
