@@ -1,0 +1,38 @@
+<!-- Review submission form -->
+<form>
+    <div class='row'>
+        <h4>Leave a review</h4>
+        <!-- User can specify their username input. Will be anonymous by default -->
+        <div class='col-md-12 form-group'>
+            <label for="username">Username</label>
+            <input id="username" class="form-control" type="text" value="Anonymous"/>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12 form-group'>
+            <label for="starRating">Your Rating</label>
+            <!-- onclick needs to be defined for glypicon-star ratings
+                 such that users can selct their rating from 1 - 5 -->
+            <div onclick="" id="starRating">
+                <span class="glyphicon glyphicon-star star"></span>
+                <span class="glyphicon glyphicon-star star"></span>
+                <span class="glyphicon glyphicon-star star"></span>
+                <span class="glyphicon glyphicon-star-empty star"></span>
+                <span class="glyphicon glyphicon-star-empty star"></span>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12 form-group'>
+            <!-- Text area where a user can write their review. No wordlimit -->
+            <label for="reviewText">Write a Review</label>
+            <textarea id="reviewText" class="form-control" rows="5"></textarea>
+        </div>
+    </div>
+    <div class='row'>
+        <!-- Block level submission button -->
+        <div class='col-md-2 col-md-offset-5'>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" value="submit">Submit</button>
+        </div>
+    </div>
+</form>

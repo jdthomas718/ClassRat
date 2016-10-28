@@ -1,0 +1,21 @@
+<!-- Markup for individual reviews to be displayed -->
+<!-- Needs a controller to be defined -->
+<div class='row'>
+    <div class='col-md-12'>
+        <em> {{ username }} </em> 
+        <i> - </i>
+        <!-- Insert star rating here (out of 5 stars) -->
+    </div>
+    <div class='col-md-4'>
+        <!-- Creation date in Month, Day, Year format -->
+        <small> Created: {{ date }} </small>
+    </div>
+</div>
+<div class='row'>
+    <div class='col-md-8'>
+        <!-- Review text here -->
+        <p>
+           {{ reviewText }}
+        </p>
+    </div>
+</div>
