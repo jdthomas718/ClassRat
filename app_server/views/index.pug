@@ -22,15 +22,27 @@ block content
   
   //Search Bar Row      
   //Based on the design from http://bootsnipp.com/snippets/featured/advanced-dropdown-search
-  .row
-    .col-md-12.searchBar
-      .input-group
-        input.form-control(type='text', placeholder='Search for classes', ng-model="search")/
-        .input-group-btn
-          button.btn.btn-primary: span.glyphicon.glyphicon-search(aria-hidden="true")
+  div(ng-controller="classCtrl")
+    .row
+      .col-md-12.searchBar
+       .input-group
+          input.form-control(type='text', placeholder='Search for classes', ng-model="search")/
+          .input-group-addon
+            span.glyphicon.glyphicon-search(aria-hidden="true")
           
-  //Data Rows
-  .row.list-group(ng-controller="classListCtrl")
-    .col-md-12
-      button.list-group-item(ng-show="search" ng-repeat="class in data.classes | filter: search" ng-cloak) {{ class.name }}
-    
+    //Class listing button rows
+    .row.list-group
+      .col-md-12
+        button.list-group-item(id="classSearchBtn" ng-show="search" ng-click="getClassSections(classListing.name);clearSearchInfo()" ng-repeat="classListing in classListings | filter: search" ng-cloak) {{ classListing.name }}
+      
+        //Class section button rows
+        div(id="sectionContainer")
+          div(class-button-item ng-cloak)
+        
+        //Class section reviews
+        div(id="reviewContainer" ng-repeat="review in sectionReviews")
+          div(review reviewId="review.id" username="review.username" rating="review.rating" date="review.created" review-text="review.text")
+          
+        //User review submission form
+        div(id="reviewInputFormContainer" ng-controller="reviewInputCtrl")
+          div(review-input-form ng-show="reviewsLoaded.getReviewsLoaded()" ng-cloak)
