@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Class = mongoose.model('Class');
 
 var sendJSONresponse = function(res, status, content) {
+  res.set('Access-Control-Allow-Origin','*');
   res.status(status);
   res.json(content);
 };
@@ -17,6 +18,7 @@ var errorGet = function(res, err) {
 };
 
 module.exports.classesGetAll = function(req, res) {
+    res.set('Access-Control-Allow-Origin','*');
     Class
         .find() // return, excluding professors array
         .select('code name')
@@ -36,6 +38,7 @@ module.exports.classesGetAll = function(req, res) {
 };
 
 module.exports.professorsForClass = function(req, res) {
+    res.set('Access-Control-Allow-Origin','*');
     if (req.params && req.params.classid) {
         Class
             .findById(req.params.classid) // return, excluding reviews array
