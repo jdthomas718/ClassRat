@@ -22,7 +22,6 @@ var errorPost = function(res, err) {
 };
 
 module.exports.reviewsGetAll = function(req, res) {
-    res.set('Access-Control-Allow-Origin','*');
     if (req.params && req.params.classid && req.params.professorid) {
         Class
             .findById(req.params.classid) // return, excluding reviews array
@@ -62,7 +61,6 @@ module.exports.reviewsGetAll = function(req, res) {
 };
 
 module.exports.reviewsCreate = function(req, res) {
-    res.set('Access-Control-Allow-Origin','*');
     if (req.params && req.body && req.params.classid && req.params.professorid) {
         Class
             .findById(req.params.classid) // return, excluding reviews array
