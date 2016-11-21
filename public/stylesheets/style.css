@@ -34,13 +34,21 @@ body {
 
 /*Review.html styles */
 .star {
-    color: orange;
+    padding: 1px;
+    color: #ddd;
+    font-size: 30px;
+    text-shadow: .05em .05em #aaa;
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.glyphicon.glyphicon-star {
-    font-size: 30px;
+.filled {
+    color: #fd0;
 }
 
-.glyphicon.glyphicon-star-empty {
-    font-size: 30px;
+ul li{
+    margin: 0;
+    padding: 0;
+    display: inline;
 }

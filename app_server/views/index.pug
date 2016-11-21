@@ -22,7 +22,7 @@ block content
   
   //Search Bar Row      
   //Based on the design from http://bootsnipp.com/snippets/featured/advanced-dropdown-search
-  div(ng-controller="classCtrl")
+  div(ng-controller="classCtrl" ng-init="getClassData()")
     .row
       .col-md-12.searchBar
        .input-group
@@ -33,16 +33,19 @@ block content
     //Class listing button rows
     .row.list-group
       .col-md-12
-        button.list-group-item(id="classSearchBtn" ng-show="search" ng-click="getClassSections(classListing.name);clearSearchInfo()" ng-repeat="classListing in classListings | filter: search" ng-cloak) {{ classListing.name }}
+        button.list-group-item(id="classSearchBtn" ng-show="search" ng-click="getClassSections(classListing._id, classListing.name);clearSearchInfo()" ng-repeat="classListing in classListings | filter: search" ng-cloak) {{ classListing.name }}
       
         //Class section button rows
         div(id="sectionContainer")
           div(class-button-item ng-cloak)
         
         //Class section reviews
+        .row(ng-show="sharedObj.getReviewsLoaded()" ng-cloak)
+          .col-md-12
+            h2 User Reviews
         div(id="reviewContainer" ng-repeat="review in sectionReviews")
           div(review reviewId="review.id" username="review.username" rating="review.rating" date="review.created" review-text="review.text")
           
         //User review submission form
         div(id="reviewInputFormContainer" ng-controller="reviewInputCtrl")
-          div(review-input-form ng-show="reviewsLoaded.getReviewsLoaded()" ng-cloak)
+          div(review-input-form ng-show="sharedObj.getReviewsLoaded()" ng-cloak)

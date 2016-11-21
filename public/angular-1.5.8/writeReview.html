@@ -1,38 +1,63 @@
 <!-- Review submission form -->
-<form>
+<form name="reviewForm" ng-hide='sharedObj.submitted' ng-submit="onSubmit()" novalidate>
     <div class='row'>
         <h4>Leave a review</h4>
+        <!-- Error Box -->
+        <div ng-class= "{ 'alert alert-danger' : reviewForm.$invalid }">
+            <h5 ng-show='reviewForm.$invalid'>
+                Please fix before submitting review: 
+            </h5>
+            <div ng-show="reviewForm.username.$error.minlength">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Username is too short!
+            </div>
+            <div ng-show="reviewForm.username.$error.maxlength">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Username is too long!
+            </div>
+            <div ng-show="reviewForm.reviewText.$error.maxlength">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Too many characters in your review!
+            </div>
+            <div ng-show="reviewForm.username.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                You need to enter a username!
+            </div>
+        </div>
         <!-- User can specify their username input. Will be anonymous by default -->
         <div class='col-md-12 form-group'>
-            <label for="username">Username</label>
-            <input id="username" class="form-control" type="text" value="Anonymous"/>
+            <label for="username">Username* (Min 3 characters, Max 12 characters)</label>
+            <input id="username" class="form-control" name="username" type="text" ng-model="newReview.username" placeholder="Enter a Username" ng-minlength="3" ng-maxlength="12" required/>
         </div>
     </div>
     <div class='row'>
         <div class='col-md-12 form-group'>
-            <label for="starRating">Your Rating</label>
+            <label for="starRating">Your Rating (1 star = terrible, 5 stars = perfect)</label>
             <!-- onclick needs to be defined for glypicon-star ratings
                  such that users can selct their rating from 1 - 5 -->
-            <div onclick="" id="starRating">
-                <span class="glyphicon glyphicon-star star"></span>
-                <span class="glyphicon glyphicon-star star"></span>
-                <span class="glyphicon glyphicon-star star"></span>
-                <span class="glyphicon glyphicon-star-empty star"></span>
-                <span class="glyphicon glyphicon-star-empty star"></span>
+            <div star-rating ng-model="newReview.rating" max="5" id="starRating">
             </div>
         </div>
     </div>
     <div class='row'>
         <div class='col-md-12 form-group'>
             <!-- Text area where a user can write their review. No wordlimit -->
-            <label for="reviewText">Write a Review</label>
-            <textarea id="reviewText" class="form-control" rows="5"></textarea>
+            <label for="reviewText">Write a Review (Max 2000 characters)</label>
+            <textarea id="reviewText" name="reviewText" class="form-control" rows="5" ng-model="newReview.text" placeholder="Enter a Review" ng-maxlength="2000"></textarea>
         </div>
     </div>
     <div class='row'>
         <!-- Block level submission button -->
         <div class='col-md-2 col-md-offset-5'>
-            <button type="submit" class="btn btn-primary btn-lg btn-block" value="submit">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" value="submit" ng-disabled="reviewForm.$invalid">Submit</button>
         </div>
     </div>
 </form>
+<!-- Thank you message shown on submission -->
+<div ng-show='sharedObj.submitted' class='row'>
+    <div class='col-md-12'>
+        <h5 class='alert alert-success'>
+            Thanks for your review!
+        </h5>
+    </div>
+</div>
