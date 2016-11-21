@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Class = mongoose.model('Class');
 
 var sendJSONresponse = function(res, status, content) {
-  res.set('Access-Control-Allow-Origin','*');
   res.status(status);
   res.json(content);
 };
