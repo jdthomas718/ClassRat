@@ -21,6 +21,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var api = require('./api.js'); // call RESTful API
+api(app); // pass express app to API
+
 app.use('/', routes);
 app.use('/users', users);
 
