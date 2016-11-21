@@ -1,1 +1,54 @@
+/* General Styles */
+/* See http://stackoverflow.com/questions/21324395/bootstrap-3-flush-footer-to-bottom-not-fixed */
+html {
+    position: relative;
+    min-height: 100%;
+}
 
+body {
+    margin-bottom: 60px;
+    overflow-x: hidden; /* Hides side-scroll bar caused by footer */
+}
+
+/* Layout.pug styles */
+
+.iconHeader {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.footer {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 60px;
+}
+
+/* Index.pug styles */
+.searchBar {
+    margin-top: 3%;
+}
+
+/*Review.html styles */
+.star {
+    padding: 1px;
+    color: #ddd;
+    font-size: 30px;
+    text-shadow: .05em .05em #aaa;
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.filled {
+    color: #fd0;
+}
+
+ul li{
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
