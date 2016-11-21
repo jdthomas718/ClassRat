@@ -153,7 +153,7 @@ var getClassDataService = function($http) {
     var ClassDataService = {
         // $http returns a promise, which has a then function, which also returns a promise
         async: function() {
-            var promise = $http.get('https://brosz-class-rat-nbrosz.c9users.io/api/classes/').then(function(response) {
+            var promise = $http.get('/api/classes/').then(function(response) {
         // The return value gets picked up by the then method in the controller.
                 return response.data;
             },
@@ -175,7 +175,7 @@ var getClassSectionService = function($http) {
     var ClassSectionService = {
         // $http returns a promise, which has a then function, which also returns a promise
         async: function(classId) {
-            var promise = $http.get('https://brosz-class-rat-nbrosz.c9users.io/api/classes/' + classId + '/professors/').then(function(response) {
+            var promise = $http.get('/api/classes/' + classId + '/professors/').then(function(response) {
         // The return value gets picked up by the then method in the controller.
                 return response.data;
             },
@@ -197,7 +197,7 @@ var getClassReviewService = function($http) {
     var ClassReviewService = {
         // $http returns a promise, which has a then function, which also returns a promise    
         async: function(profId, classId) {
-            var promise = $http.get('https://brosz-class-rat-nbrosz.c9users.io/api/classes/' + classId + '/professors/' + profId + '/reviews/' ).then(function(response) {
+            var promise = $http.get('/api/classes/' + classId + '/professors/' + profId + '/reviews/' ).then(function(response) {
         // The return value gets picked up by the then method in the controller.
                 return response.data;
             },
@@ -258,7 +258,7 @@ var addReviewService = function($http) {
                 review.rating = newReview.rating;
                 review.text = newReview.text;
                 
-                var promise = $http.post('https://brosz-class-rat-nbrosz.c9users.io/api/classes/'+newReview.classId+'/professors/'+newReview.profId+'/reviews/', newReview).then(
+                var promise = $http.post('/api/classes/'+newReview.classId+'/professors/'+newReview.profId+'/reviews/', newReview).then(
                     //On success
                     function(response) {
                         alert("POST success!");
