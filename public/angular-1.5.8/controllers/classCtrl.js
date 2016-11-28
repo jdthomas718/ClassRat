@@ -6,6 +6,7 @@ angular.module('ClassRat').controller('classCtrl', function($scope, $http, share
     $scope.classId = "";
     $scope.className = "";
     $scope.classListings = [];
+    $scope.professorName = "";
     $scope.sharedObj.setReviewsLoaded(false);
 
     $scope.getClassData = function() {
@@ -28,12 +29,14 @@ angular.module('ClassRat').controller('classCtrl', function($scope, $http, share
 		$scope.sharedObj.setSharedClassId(classId);
 	};
 	
-	$scope.getSectionReviews = function(profId) {
+	$scope.getSectionReviews = function(profId, profName) {
 	    // Calls the async method defined in the service that returns a promise
         // The then method of the promise is used to set $scope.sectionReviews to the data response
 	    getClassReviewService.async(profId, $scope.classId).then(function(reviews) {
 	        $scope.sectionReviews = reviews;
 	    });
+	    
+	    $scope.professorName = "- " + profName;
 	    $scope.sharedObj.setReviewsLoaded(true);
 	    $scope.sharedObj.setSharedProfId(profId);
 	    $scope.sharedObj.submitted = false;

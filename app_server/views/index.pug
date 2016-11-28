@@ -1,24 +1,33 @@
 extends layout
 
 block content
+  
+  //Getting started modal
+  .modal.fade(id='gettingStarted' tabindex='-1' role='dialog' aria-labelledby='gettingStarted' aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true')
+              | &times;
+          h4.modal-title(id='gettingStartedLabel')
+            | Getting Started
+        .modal-body
+            p Just <mark>search for the name of the class</mark> that you're interested in. Valid formats include both the <mark>name</mark> and <mark>course number</mark>.
+            p For example, entering <kbd> Discrete Math</kbd> or <kbd> Math 316</kbd> are both valid inputs. 
+            p Then, just <mark>click the relevant class option</mark> that will auto-populate below the search bar as you type. 
+            p After selecting a class, you will then have the option to <mark>choose a particular class section</mark> taught by a professor that you're interested in.
+            p You will then be able to see the reviews associated with that class section. Please <mark>leave a review</mark> if you have taken the class!
+        .modal-footer
+          button.btn.btn-info(type='button' data-dismiss='modal')
+            | Close
+            
   //Welcome row
   .row
     .col-md-12
       h1 Welcome
       p 
-        | Welcome to ClassRat. A pretty cool tool to search for and rate <a href='http://www.dsu.edu'>Dakota State University </a> classes that was
-        | made by a couple of students
-  
-  //Getting started rows  
-  .row
-    .col-md-12
-      h2 Getting Started
-      p
-        | Just search for the name of the class that you are interested in. Valid formats include both the name and course number
-  .row
-    .col-md-12
-      p 
-        | For example, entering <kbd> Discrete Math</kbd> or <kbd> Math 316</kbd> are both valid inputs
+        | Welcome to ClassRat, a tool used to search for and rate <a href='http://www.dsu.edu'>Dakota State University </a> classes.
   
   //Search Bar Row      
   //Based on the design from http://bootsnipp.com/snippets/featured/advanced-dropdown-search
@@ -42,7 +51,7 @@ block content
         //Class section reviews
         .row(ng-show="sharedObj.getReviewsLoaded()" ng-cloak)
           .col-md-12
-            h2 User Reviews
+            h2 User Reviews {{ professorName }}
         div(id="reviewContainer" ng-repeat="review in sectionReviews")
           div(review reviewId="review.id" username="review.username" rating="review.rating" date="review.created" review-text="review.text")
           

@@ -12,6 +12,9 @@ html(ng-app='ClassRat')
         .navbar-header
           a.navbar-brand(href='/') 
             span: img.iconHeader(src='/images/ClassRat-Clear.png')/ &nbsp; ClassRat
+          button.btn.btn-info.navbar-btn(data-toggle='modal' data-target='#gettingStarted' type='button')
+            | Getting Started
+            
     .container
       block content
       
@@ -19,12 +22,12 @@ html(ng-app='ClassRat')
       small Developers: <a href='https://github.com/jasoderstrom'> Justin Soderstrom </a>, &nbsp;
         | <a href='https://github.com/jdthomas718'> Jacob Thomas </a>, &nbsp;
         | <a href='https://github.com/nbrosz'> Nic Brosz </a>, &nbsp;
-        | Gideon Holmes
+        | <a href='https://github.com/geholmes'> Gideon Holmes </a>
       p: small Special Thanks (<strong>Icon</strong>): <a href='http://jmpueppke.wixsite.com/jmpueppke'> Jennelle Pueppke </a>
             
     script(src='/angular-1.5.8/angular.min.js')
-    script(src='/angular-1.5.8/ClassRat.js')
     script(src='/javascripts/jquery-3.1.1.min.js')
+    script(src='/angular-1.5.8/ClassRat.js')
     script(src='/bootstrap-3.3.7/js/bootstrap.min.js')
     script(src='/angular-1.5.8/controllers/classCtrl.js')
     script(src='/angular-1.5.8/controllers/reviewInputCtrl.js')
