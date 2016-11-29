@@ -6,21 +6,20 @@ module.exports = function(app) {
   var routesApi = require('./app_api/routes/index');
   app.use('/api', routesApi); // provide routes in API route index
 
-  fs.readFile('.dbconfig', 'utf8', function(err,data){
-     if (err) {
-          console.log(err);
-     } else {
-          var dbAccess = JSON.parse(data); // if read successful, parse JSON into object
-          db(dbAccess.url, dbAccess.user, dbAccess.password); // connect to database
-     }
+  fs.readFile('.config', 'utf8', function(err,data){
+    if (err) {
+      console.log(err);
+    } else {
+        var config = JSON.parse(data); // if read successful, parse JSON into object
+        db(config.url, config.user, config.password); // connect to database
+          
+        app.get('/api/hello', function(request, response) { // provide RESTful GET API at /hello
+            response.send('Hello, World!'); // respond with string
+        });
+        
+        app.listen(config.port || process.env.PORT, config.ip || process.env.IP); // try to open port/ip and try to use Cloud9 Port/IP if none specified
+        
+        console.log('API running!');
+    }
   });
-  
-
-  app.get('/api/hello', function(request, response) { // provide RESTful GET API at /hello
-      response.send('Hello, World!'); // respond with string
-  });
-
-  app.listen(process.env.PORT, process.env.IP); // begin app listening on Cloud9 port/IP
-
-  console.log('API running!');
 }
